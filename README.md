@@ -10,6 +10,7 @@ mvn compile exec:java -Dexec.cleanupDaemonThreads=false -Dexec.args="--host redi
 --howmanyparentkeys 10000
 --howmanychildkeys 100
 --workersleeptime 20000
+--verbose true
 
 ```
 mvn compile exec:java -Dexec.cleanupDaemonThreads=false -Dexec.args="--workersleeptime 2000 --howmanychildkeys 1000 --howmanyparentkeys 1000 --howmanyworkers 100 --maxconnections 110 --usehash true --port 10000 --username default --host redisDB.centralus.redisenterprise.cache.azure.net --password iU3cfKympxOScuHjODiBxBW4w35iNdFrNXO7xKDDHqU="

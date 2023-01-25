@@ -84,7 +84,8 @@ public class Main {
                         .setTotalNumberToWrite(howManyParentKeys)
                         .setHowManyNestedKeys(howManyChildKeys)
                         .setJedisPooled(connectionHelper.getPooledJedis())
-                        .setSleepTime(workerSleepTime);
+                        .setSleepTime(workerSleepTime)
+                        .setVerbose(verbose);
                 new Thread(hashWriter).start();
             }
         }

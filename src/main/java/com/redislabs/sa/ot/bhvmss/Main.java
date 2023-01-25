@@ -135,8 +135,12 @@ class HashWriter implements Runnable{
         for(int x=0;x<totalNumberToWrite;x++){
             String keyName = faker.company().name()+":"+faker.company().industry()+":"+faker.idNumber()+":"+faker.pokemon().name()+":"+x;
             HashMap<String,String> valuesMap = new HashMap<>();
+            long mapBuildStartTime = System.currentTimeMillis();
             for(int m=0;m<howManyNestedKeys;m++) {
                 valuesMap.put( faker.company().name()+":"+faker.company().industry()+":"+faker.idNumber()+":"+faker.pokemon().name()+":"+x, faker.company().name()+":"+faker.company().industry()+":"+faker.idNumber()+":"+faker.pokemon().name()+":"+x);
+            }
+            if(verbose&&(x==0)){
+                System.out.println("building a map object with "+howManyNestedKeys+" took "+(System.currentTimeMillis()-mapBuildStartTime)+" milliseconds");
             }
             jedis.hset(keyName,valuesMap);
             try{

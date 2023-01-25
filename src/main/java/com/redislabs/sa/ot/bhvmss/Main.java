@@ -129,7 +129,7 @@ class HashWriter implements Runnable{
     @Override
     public void run() {
         if(verbose){
-            System.out.println("About to begin another worker Thread.  Every '.' printed represents 100 Hash objects written to Redis\n");
+            System.out.println("About to begin another worker Thread.  Every '.' printed represents 10 Hash objects written to Redis\n");
         }
         long startTime = System.currentTimeMillis();
         for(int x=0;x<totalNumberToWrite;x++){
@@ -141,7 +141,7 @@ class HashWriter implements Runnable{
             jedis.hset(keyName,valuesMap);
             try{
                 Thread.sleep(sleepTime);
-                if((x%100==0)&&verbose){
+                if((x%10==0)&&verbose){
                     System.out.print(".");
                 }
             }catch(InterruptedException ie){ie.getMessage();}

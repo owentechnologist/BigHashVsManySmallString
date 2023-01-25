@@ -76,7 +76,8 @@ public class Main {
             }
 
         }
-
+        long mainThreadExecutionStartTime = System.currentTimeMillis();
+        System.out.println("Program total execution time is");
         JedisConnectionHelper connectionHelper = new JedisConnectionHelper(host, port, userName, password, maxConnections);
         if (useHash) {
             for (int x = 0; x < numberOfWorkerThreads; x++) {
@@ -89,6 +90,8 @@ public class Main {
                 new Thread(hashWriter).start();
             }
         }
+        System.out.println("Main Program method exiting - wall clock start time measured in seconds was: "+mainThreadExecutionStartTime/1000);
+        System.out.println("Subtract the Main start wall time from the last reported thread wall time to see how many seconds the program took to execute");
     }
 }
 
@@ -151,5 +154,6 @@ class HashWriter implements Runnable{
             }catch(InterruptedException ie){ie.getMessage();}
         }
         System.out.println("\nWriting "+totalNumberToWrite+" Hash objects each containing "+howManyNestedKeys+" into Redis took "+(System.currentTimeMillis()-startTime));
+        System.out.println("\nWall clock stop time for this thread measured in seconds is "+System.currentTimeMillis()/1000);
     }
 }

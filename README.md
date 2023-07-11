@@ -59,6 +59,6 @@ mvn compile exec:java -Dexec.cleanupDaemonThreads=false -Dexec.args="--workersle
 Here is a sample run using 100 threads that build Pipelines of 1000 Strings for each write to Redis:
 
 ```
-mvn compile exec:java -Dexec.cleanupDaemonThreads=false -Dexec.args="--host searchme.southcentralus.redisenterprise.cache.azure.net --port 10000 --username default --password axTCSl7I3dAQRqToG5Aq+hG7FDNXHC8Fzoc5pnaQ484X= --maxconnections 5000 --howmanyworkers 100 --workersleeptime 3000 --howmanyparentkeys 10000 --howmanychildkeys 1000 --ttl 600 --verbose true"
+mvn compile exec:java -Dexec.cleanupDaemonThreads=false -Dexec.args="--host searchme.southcentralus.redisenterprise.cache.azure.net --port 10000 --username default --password axTCSl7I3dAQRqToG5Aq+hG7FDNXHC8Fzoc5pnaQ484X= --maxconnections 5000 --howmanyworkers 100 --workersleeptime 3000 --howmanyparentkeys 10000 --howmanychildkeys 1000 --ttlseconds 600 --verbose true"
 ```
 

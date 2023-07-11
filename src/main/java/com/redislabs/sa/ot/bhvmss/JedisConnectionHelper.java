@@ -80,11 +80,11 @@ class JedisConnectionHelper {
             password = password.split("@")[0];
             System.out.println("\n\nUsing user: "+user+" / password @@@@@@@@@@"+password);
             clientConfig = DefaultJedisClientConfig.builder().user(user).password(password)
-                    .connectionTimeoutMillis(120000).timeoutMillis(120000).build(); // timeout and client settings
+                    .connectionTimeoutMillis(12000).timeoutMillis(12000).build(); // timeout and client settings
 
         }else {
             clientConfig = DefaultJedisClientConfig.builder()
-                    .connectionTimeoutMillis(120000).timeoutMillis(120000).build(); // timeout and client settings
+                    .connectionTimeoutMillis(12000).timeoutMillis(12000).build(); // timeout and client settings
         }
         GenericObjectPoolConfig<Connection> poolConfig = new ConnectionPoolConfig();
         poolConfig.setMaxIdle(1);

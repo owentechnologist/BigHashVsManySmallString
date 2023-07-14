@@ -62,3 +62,7 @@ Here is a sample run using 100 threads that build Pipelines of 1000 Strings for 
 mvn compile exec:java -Dexec.cleanupDaemonThreads=false -Dexec.args="--host searchme.southcentralus.redisenterprise.cache.azure.net --port 10000 --username default --password axTCSl7I3dAQRqToG5Aq+hG7FDNXHC8Fzoc5pnaQ484X= --maxconnections 5000 --howmanyworkers 100 --workersleeptime 3000 --howmanyparentkeys 10000 --howmanychildkeys 1000 --ttlseconds 600 --verbose true"
 ```
 
+Here is a run against a TLS enabled Redis Server:
+```
+mvn compile exec:java -Dexec.cleanupDaemonThreads=false -Dexec.args="--host searchme.southcentralus.redisenterprise.cache.azure.net --port 10000 --username default --maxconnections 100000 --howmanyworkers 100 --workersleeptime 3000 --howmanyparentkeys 10000 --howmanychildkeys 1000 --ttlseconds 900 --verbose true --password TfXdPc1I3zauBxWfFpVaqa4DTo0vkqO0JNpzMbAZZuo= --usessl true --usercertpath /Users/owentaylor/wip/security/redis-user-keystore.p12 --usercertpass fixme --cacertpath /Users/owentaylor/Library/Java/JavaVirtualMachines/openjdk-15.0.1/Contents/Home/lib/security/cacerts --cacertpassword fixme"
+```
